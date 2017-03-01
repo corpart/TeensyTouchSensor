@@ -230,7 +230,7 @@ void loop() {
     /*send packet*/
     //      DynamicJsonBuffer jsonBuffer3;
     char jsonChar1[100];
-    jsonString1 = "{\"source\": \"" + String(100+currentModule) + "\",\"flavor\" :\"" + flavor1 + "\",\"choice\" :\"" + choice1 + "\"}";
+    jsonString1 = "{\"source\": " + String(100+currentModule) + ",\"flavor\" :\"" + flavor1 + "\",\"choice\" :\"" + choice1 + "\"}";
     jsonString1.toCharArray(jsonChar1, 100);
 
     if (currentModule > 0) { //if dip is set to 0, don't try to send
