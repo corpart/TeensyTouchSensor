@@ -251,7 +251,7 @@ void loop() {
 
     /*send packet*/
     char jsonChar2[100];
-    jsonString2 = "{\"source\": \"" + String(100+currentModule) + "\",\"flavor\" :\"" + flavor2 + "\",\"choice\" :\"" + choice2 + "\"}";
+    jsonString2 = "{\"source\": " + String(100+currentModule) + ",\"flavor\" :\"" + flavor2 + "\",\"choice\" :\"" + choice2 + "\"}";
     jsonString2.toCharArray(jsonChar2, 100);
     
     if (currentModule > 0) { //if dip is set to 0, don't try to send
