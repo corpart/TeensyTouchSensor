@@ -8,8 +8,8 @@
 
 
 /*user variables*/
-double thresholdScale1 = .4; // see above, threshold for button 1
-double thresholdScale2 = .4; // button 2
+double thresholdScale1 = 2;// .4; // see above, threshold for button 1
+double thresholdScale2 = 2;//.4; // button 2
 int calTime = 5000;  //calibraton time on startup
 int beatDelay = 30000; //interval between sending beat packets, in millisenconds
 
@@ -62,7 +62,7 @@ byte greenValue = LOW;
 byte blueValue = LOW;
 
 /*moving average variables*/
-const int numReadings = 5; // Number of samples to average
+const int numReadings = 16; //5// Number of samples to average
 double readings1[numReadings];      // the readings from the analog input
 double readings2[numReadings];
 int readIndex = 0;              // the index of the current reading
@@ -213,12 +213,12 @@ void loop() {
   }
 
   /*visualization*/
-  Serial.print(touchRead(inputPin1));
-  Serial.print("\t");
+//  Serial.print(touchRead(inputPin1));
+//  Serial.print("\t");
   Serial.print(average1);
   Serial.print("\t");
   Serial.print(threshold1);
-  Serial.print(touchRead(inputPin2));
+//  Serial.print(touchRead(inputPin2));
   Serial.print("\t");
   Serial.print(average2);
   Serial.print("\t");
@@ -361,10 +361,10 @@ void calibrate(double *thresholds)
     }
   }
   /*method 1, if calibration includes a touch*/
-  idle1 = (sensorMax1 + sensorMin1) / 2;
-  idle2 = (sensorMax2 + sensorMin2) / 2;
-  thresholds[0] = idle1 + .5 * (touchMax1 - idle1); //calculate a threshold for trigger
-  thresholds[1] = idle2 + .5 * (touchMax2 - idle2); //calculate a threshold for trigger
+//  idle1 = (sensorMax1 + sensorMin1) / 2;
+//  idle2 = (sensorMax2 + sensorMin2) / 2;
+//  thresholds[0] = idle1 + .5 * (touchMax1 - idle1); //calculate a threshold for trigger
+//  thresholds[1] = idle2 + .5 * (touchMax2 - idle2); //calculate a threshold for trigger
 
   /*method2: for calibration without touching sensor. */
   thresholds[0] = sensorMax1 + thresholdScale1 * (sensorMax1 - sensorMin1); //calculate a threshold for trigger
